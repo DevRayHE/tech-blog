@@ -1,16 +1,16 @@
 [
   {
-    "titlcontente": "I agree that MVC is very important",
+    "content": "I agree that MVC is very important",
     "blog_id": "1",
     "user_id": "2"
   },
   {
-    "title": "That really helps me clear up the confusion between the two!",
+    "content": "That really helps me clear up the confusion between the two!",
     "blog_id": "2",
     "user_id": "3"
   },
   {
-    "title": "Look forward to learning that in my up coming lessons!",
+    "content": "Look forward to learning that in my up coming lessons!",
     "blog_id": "3",
     "user_id": "1"
   }

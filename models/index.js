@@ -8,7 +8,7 @@ User.hasMany(Blog, {
   onDelete: 'CASCADE'
 });
 
-ExerciseRecord.belongsTo(User, {
+Blog.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
