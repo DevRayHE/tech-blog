@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Blog, User, Comment} = require('../models');
 const withAuth = require('../utils/auth');
 
+// Route to render home page
 router.get('/', async (req, res) => {
   try {
     // Get all blog data
@@ -36,29 +37,12 @@ router.get('/blog/:id', withAuth, async (req, res) => {
           model: User,
           attributes: ['username']
         },
-        // {
-        //   model: Comment,
-        //   include: [{ 
-        //     model: User,
-        //   },]
-        // },
       ],
     });
 
-    // console.log(blogData);
     const blog = blogData.get({ plan: true });
-    // console.log(blog);
     const blogUser = blog.user.get({ plan:true });
     console.log(blogUser);
-    
-    // const blogComment = blog.comment.map((comment) => comment.get({ plain: true }));
-    // console.log(blogComment);
-
-
-    // const blogUser = blog.user.get({ plan: true });
-    // console.log(blogUser);
-    
-    // console.log(blogComment);
 
     // Get all comment belongs to the blog with match id from req params
     const commentData = await Comment.findAll({
@@ -74,17 +58,6 @@ router.get('/blog/:id', withAuth, async (req, res) => {
     });
 
     const comments = commentData.map((comment) => comment.get({ plain: true }));
-    console.log(comments);
-    // const commentUser = comment.user.map((commentUser) => commentUser.get({ plain: true }));
-    // console.log(commentData);
-    // console.log(commentUser);
-    
-
-    // res.render('blog', {
-    //   blog,
-    //   blogUser,
-    //   blogComment
-    // });
 
     res.render('blog', {
       ...blog,
@@ -112,8 +85,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
       ],
     });
 
-    console.log(blogData);
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
+
+    console.log(blogs);
 
     res.render('dashboard', {
       blogs,
@@ -128,7 +102,7 @@ router.get('/login', (req, res) => {
   // If the user is already logged in, redirect to dashboard
   if (req.session.logged_in) {
     // res.redirect('/dashboard');
-    res.redirect('/dashboard');
+    res.redirect('/api/dashboard');
     return;
   }
 

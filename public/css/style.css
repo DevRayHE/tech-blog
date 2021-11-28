@@ -5,8 +5,14 @@
 
 .blog {
 	border-bottom: 3px solid lightskyblue !important;
+	margin: 1rem;
+	padding-bottom: 1rem;
 }
 
 .comment {
 	border-bottom: 3px solid lightseagreen !important;
+}
+
+button {
+	margin: 0.5 rem !important;
 }

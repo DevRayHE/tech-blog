@@ -5,19 +5,21 @@
     <p>Created by {{blogUser.username}} on {{format_date date_created}}</p>
   </div>
 
+  {{!-- Only render if comments exists --}}
+  {{#if comments}}
   <section class="text-center">
     {{#each comments as |comment|}}
     {{> comment-details}}
     {{/each}}
   </section>
+  {{/if}}
 
-  <form class="form comment-form">
+  <form class="form comment-form" data-id="{{id}}">
     <div class="form-group">
       <label for="new-comment bg-light">New Comment:</label>
       <input class="form-input" type="text" id="new-comment"/>
-      <button class="btn btn-primary" type="submit" id="comment">
+      <button class="btn btn-primary" type="submit" id="commentBtn">
       Comment
-      {{!-- <a href="/blog/{{id}}"></a> --}}
       </button>
     </div>
   </form>
