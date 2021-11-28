@@ -19,6 +19,18 @@ Comment.init(
         isAlphanumeric: true,
       },
     },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isAlphanumeric: true,
+      },
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
     blog_id: {
       type: DataTypes.INTEGER,
       references: {
