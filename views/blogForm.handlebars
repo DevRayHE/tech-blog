@@ -1,0 +1,65 @@
+{{!-- Render the form based on whether it's for new blog or edit blog --}}
+<div class="container">
+  <h2>
+    {{#if newBlog}}
+    New Blog
+    {{/if}}
+    {{#if editBlog}}
+    Edit Blog
+    {{/if}}
+  </h2>
+
+  {{#if newBlog}}
+  <form class="form newBlog-form">
+  {{/if}}
+  {{#if editBlog}}
+  <form class="form updateBlog-form" data-id="{{id}}">
+  {{/if}}
+    <div class="form-group">
+      <label for="titlet">Title</label>
+      <input class="form-input" type="text" id="title"
+      {{#if editBlog}}
+      value="{{title}}"
+      {{/if}}
+      >
+    </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea class="form-input" type="text" id="content" rows="5" cols="50">
+        {{#if editBlog}}
+        {{content}}
+        {{/if}}
+      </textarea>
+      
+    </div>
+    {{#if newBlog}}
+    <div class="form-group">
+      <button class="btn btn-success" type="submit">
+        Post new blog
+      </button>
+    </div>
+    {{/if}}
+
+    {{#if editBlog}}
+    <div class="flex-row">
+      <div class="form-group">
+        <button class="btn btn-success" type="submit">
+          Update Blog
+        </button>
+      </div>
+
+      <button class="btn btn-danger" data-id="{{blog.id}}" id="del-btn">
+        Delete
+      </button>
+    </div>
+    {{/if}}
+  </form>
+</div>
+
+{{#if newBlog}}
+<script src="/js/newBlog.js"></script>
+{{/if}}
+
+{{#if editBlog}}
+<script src="/js/updateBlog.js"></script>
+{{/if}}

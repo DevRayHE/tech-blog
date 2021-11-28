@@ -19,6 +19,10 @@
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        Logged in as {{username}}
+        {{/if}}
+        <p></p>
         <button class="btn btn-secondary" id="home">
           <a href="/">Home</a>
         </button>

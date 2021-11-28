@@ -3,11 +3,6 @@ const newCommentFormHandler = async (event) => {
 
   const content = document.querySelector("#new-comment").value.trim();
 
-  // Get the current blog ID from url
-  // const blogId = window.location.toString().split('/')[
-  //   window.location.toString().split('/').length - 1
-  // ];
-
   // Get the current blog ID from event target data attribute
   const blogId = event.target.getAttribute('data-id');
 

@@ -3,10 +3,14 @@
 	border: 2px, dotted, lightseagreen;
 }
 
+.form,
 .blog {
-	border-bottom: 3px solid lightskyblue !important;
-	margin: 1rem;
-	padding-bottom: 1rem;
+	border-top: 2px dotted lightskyblue;
+	border-left: 2px dotted lightskyblue;
+	border-right: 2px dotted lightskyblue;
+	border-bottom: 3px solid lightskyblue;
+	margin: 0.5rem;
+	padding: 0.5rem;
 }
 
 .comment {

@@ -1,21 +1,25 @@
 {{!-- <div class="text-center">
   <h2>{{title}}</h2>
   <p>{{content}}</p>
-  <p>Created by {{user.username}} on {{format_date date_created}}</p>
+  <p>Created by {{user.username}} on {{format_date blog.date_created}}</p>
   <p>
     <button class="btn btn-primary">Comment</button>
   </p>
 </div> --}}
 
-{{!-- <div><h3>{{User.username}} dashboard</h3></div> --}}
-<button class="btn btn-primary" id="new-btn">New Post</button>
+<div class="text-center">
+  <h4>{{username}} dashboard</h4>
+</div>
+
+<div class="text-center">
+  <button class="btn btn-light" id="new-btn">New Post</button>
+</div>
+
 
 {{#each blogs as |blog| }}
 <div class="row mb-4 text-center blog">
   <div class="col-md-5">
-    <h2 class="bg-light">
-      <a href="/blog/{{blog.id}}">{{blog.title}}</a>
-    </h2>
+    <h2><a href="/blog/{{blog.id}}">{{blog.title}}</a></h2>
   </div>
   <div class="col-md-7">
     <p>
@@ -25,11 +29,11 @@
   </div>
 
   <div class="flex-row justify-content-evenly">
-    <button class="btn btn-secondary" data-id="{{blog.id}}" id="edit-btn">
+    <button class="btn btn-secondary edit-btn" data-id="{{blog.id}}">
       Edit
     </button>
 
-    <button class="btn btn-danger" data-id="{{blog.id}}" id="del-btn">
+    <button class="btn btn-danger del-btn" data-id="{{blog.id}}">
       Delete
     </button>
   </div>

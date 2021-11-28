@@ -1,18 +1,15 @@
-// Get the current blog ID from url
-const blogId = window.location.toString().split('/')[
-  window.location.toString().split('/').length - 1
-];
-
 // handle event to display new blog form
 const newBtnHandler = async (event) => {
-
   document.location.replace('/api/dashboard/new');
 };
 
-// handle event to edit current blog
+// handle event to display edit current blog form
 const editBtnHandler = async (event) => {
   event.preventDefault();
 
+  const id = event.target.getAttribute('data-id');
+
+  document.location.replace(`/api/dashboard/edit/${id}`);
 };
 
 // handle event to delete current blog
@@ -37,11 +34,17 @@ document
   .querySelector("#new-btn")
   .addEventListener("click", newBtnHandler);
 
-document
-  .querySelector("#edit-btn")
-  .addEventListener("click", editBtnHandler);
+const editBtns = document.querySelectorAll(".edit-btn");
+const delBtns = document.querySelectorAll(".del-btn");
 
-document
-  .querySelector("#del-btn")
-  .addEventListener("click", delBtnHandler);
+editBtns.forEach(btn => {
+  btn.addEventListener("click", editBtnHandler);
+});
+
+delBtns.forEach(btn => {
+  btn.addEventListener("click", delBtnHandler);
+});
+
+
+
 

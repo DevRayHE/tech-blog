@@ -20,6 +20,7 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', {
       blogs,
+      username: req.session.username,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -42,7 +43,6 @@ router.get('/blog/:id', withAuth, async (req, res) => {
 
     const blog = blogData.get({ plan: true });
     const blogUser = blog.user.get({ plan:true });
-    console.log(blogUser);
 
     // Get all comment belongs to the blog with match id from req params
     const commentData = await Comment.findAll({
@@ -63,6 +63,7 @@ router.get('/blog/:id', withAuth, async (req, res) => {
       ...blog,
       blogUser,
       comments,
+      username: req.session.username,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -91,6 +92,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     res.render('dashboard', {
       blogs,
+      username: req.session.username,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -101,7 +103,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect to dashboard
   if (req.session.logged_in) {
-    // res.redirect('/dashboard');
     res.redirect('/api/dashboard');
     return;
   }
@@ -112,6 +113,5 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
   res.render('signup');
 });
-
 
 module.exports = router;
