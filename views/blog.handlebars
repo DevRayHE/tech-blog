@@ -9,9 +9,15 @@
     {{/each}}
   </section>
 
-  <p>
-    <button class="btn btn-primary" id="comment">
-      <a href="/comments/">Comment</a>
-    </button>
-  </p>
+  <form class="form comment-form">
+    <div class="form-group">
+      <label for="new-comment bg-light">Comment:</label>
+      <input class="form-input" type="text" id="new-comment"/>
+      <button class="btn btn-primary" type="submit" id="comment">
+      <a href="/comments">Comment</a>
+      </button>
+    </div>
+  </form>
 </div>
+
+<script src="./js/comment.js"></script>
