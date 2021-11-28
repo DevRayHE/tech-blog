@@ -1,27 +1,33 @@
-const signupFormHandler = async (event) => {
+const newCommentFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector("#name-signup").value.trim();
-  const email = document.querySelector("#email-signup").value.trim();
-  const password = document.querySelector("#password-signup").value.trim();
+  const content = document.querySelector("#new-comment").value.trim();
 
-  console.log(name);
+  // Get the current blog ID
+  const blogId = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
 
-  if (name && email && password) {
-    const response = await fetch('/api/users', {
+  // console.log(content);
+  // console.log(blogId);
+  
+  if (content) {
+    const response = await fetch('/api/comment', {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ content, blogId }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      // document.location.replace('/dashboard');
+      alert("Comment updated successfully!");
+      location.reload();
     } else {
-      alert(response.statusText);
+      alert("Failed to add comment!");
     }
   }
 };
 
 document
   .querySelector(".comment-form")
-  .addEventListener("submit", signupFormHandler);
+  .addEventListener("submit", newCommentFormHandler);

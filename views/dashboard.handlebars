@@ -10,17 +10,33 @@
 {{!-- <div><h3>{{User.username}} dashboard</h3></div> --}}
 
 {{#each blogs as |blog| }}
-<div class="row mb-4">
+<div class="row mb-4 text-center blog">
   <div class="col-md-5">
     <h2 class="bg-light">
       <a href="/blog/{{blog.id}}">{{blog.title}}</a>
     </h2>
-    <p>Created by {{user.username}} on {{format_date blog.date_created}}</p>
+    <p>Created on {{format_date blog.date_created}}</p>
+    <form class="form blog-form">
+      <div class="flex-column justify-space-around">
+        <button class="btn btn-primary" id="new-btn">
+          <a href="/blog/">New Post</a>
+        </button>
+        <button class="btn btn-primary" id="edit-btn">
+          <a href="/blog/">Edit</a>
+        </button>
+        <button class="btn btn-primary" id="del-btn">
+          <a href="/blog/">Delete</a>
+        </button>
+      </div>
+    </form>
   </div>
   <div class="col-md-7">
     <p>
       {{blog.content}}
     </p>
   </div>
+  
 </div>
 {{/each}}
+
+<script src="./js/blog.js"></script>

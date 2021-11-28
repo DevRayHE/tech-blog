@@ -2,3 +2,11 @@
 	border-radius: 3;
 	border: 2px, dotted, lightseagreen;
 }
+
+.blog {
+	border-bottom: 3px solid lightskyblue !important;
+}
+
+.comment {
+	border-bottom: 3px solid lightseagreen !important;
+}

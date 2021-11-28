@@ -1,7 +1,9 @@
 <div class="text-center">
-  <h2>{{title}}</h2>
-  <p>{{content}}</p>
-  <p>Created by {{blogUser.username}} on {{format_date date_created}}</p>
+  <div class="blog">
+    <h2>{{title}}</h2>
+    <p>{{content}}</p>
+    <p>Created by {{blogUser.username}} on {{format_date date_created}}</p>
+  </div>
 
   <section class="text-center">
     {{#each comments as |comment|}}
@@ -11,13 +13,14 @@
 
   <form class="form comment-form">
     <div class="form-group">
-      <label for="new-comment bg-light">Comment:</label>
+      <label for="new-comment bg-light">New Comment:</label>
       <input class="form-input" type="text" id="new-comment"/>
       <button class="btn btn-primary" type="submit" id="comment">
-      <a href="/comments">Comment</a>
+      Comment
+      {{!-- <a href="/blog/{{id}}"></a> --}}
       </button>
     </div>
   </form>
 </div>
 
-<script src="./js/comment.js"></script>
+<script src="/js/comment.js"></script>
