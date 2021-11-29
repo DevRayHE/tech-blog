@@ -40,7 +40,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 router.post('/update/:id', withAuth,  async (req, res) => {
   try {
 
-    console.log(req.body);
     const updatedBlog = await Blog.update(
       {
         title: req.body.title,
@@ -64,7 +63,6 @@ router.post('/update/:id', withAuth,  async (req, res) => {
 router.post('/', withAuth,  async (req, res) => {
   try {
 
-    console.log(req.body);
     const newBlog = await Blog.create({
       title: req.body.title,
       content: req.body.content,

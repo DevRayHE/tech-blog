@@ -18,7 +18,6 @@ const newCommentFormHandler = async (event) => {
 
     if (response.ok) {
       // document.location.replace('/dashboard');
-      alert("Comment updated successfully!");
       location.reload();
     } else {
       alert("Failed to add comment!");

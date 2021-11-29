@@ -57,6 +57,8 @@
 
 [Link to this repo url](https://github.com/DevRayHE/tech-blog)
 
+[Link to the deployed site on Heroku](https://desolate-ridge-04250.herokuapp.com/)
+
 ### Follow the steps below to install:
 
 1. Clone the Github Repository to your local storage.
@@ -67,7 +69,7 @@
 6. Input your mysql password associated to the "username"
 7. Run 'source ./db/schema.sql'
 8. Run 'quit" to get back to Terminal
-9. Run 'npm seed' to seed the database
+9. Run 'node seeds/seed.js' to seed the database
 10. Run 'npm start'
 11. A Full Stack tech blog is now live!
 
